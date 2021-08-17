@@ -9,6 +9,7 @@ function renderAllQuote() {
       const p = document.createElement("p");
       const footer = document.createElement('footer');
       const like = document.createElement('button');
+      const span = document.createElement('span');
       const del = document.createElement('button');
       like.className = 'btn-success';
       del.className = 'btn-danger';
@@ -19,7 +20,9 @@ function renderAllQuote() {
       like.innerHTML = 'Like:';
       del.innerText = 'Delete';
       footer.innerHTML = el.author+'<br>';
+      span.innerText = el.likes.length;
       p.innerText = el.quote;
+      like.append(span);
       blockQuote.append(p, footer, like, del);
       li.appendChild(blockQuote);
       ul.appendChild(li);
@@ -29,7 +32,7 @@ function renderAllQuote() {
 
 //fetch
 function fetchAllQuote() {
-  return fetch(baseURL + "quotes").then((resp) => resp.json());
+  return fetch(baseURL + "quotes?_embed=likes").then((resp) => resp.json());
 }
 
 renderAllQuote();
