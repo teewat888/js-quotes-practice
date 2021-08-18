@@ -62,8 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
               createAt: Date.now()
           })
       }
-      fetchAddLike(confObj).then((data) => {
-          console.log('data like: ',data);
+      fetchAddLike(confObj).then(() => {
+          //console.log('data like: ',data);
           clearTags();
           renderAllQuote();
         })
@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
         id: idQ,
       }),
     };
-    fetchDeleteQuote(idQ, confObj).then((data) => {
-      console.log("data del:  ", data);
+    fetchDeleteQuote(idQ, confObj).then(() => {
+      //console.log("data del:  ", data);
       clearTags();
       renderAllQuote();
     });
@@ -101,9 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
         author: author.value,
       }),
     };
-    console.log("confObj:  ", confObj);
-    fetchAddQuote(confObj).then((data) => {
-      console.log("data: ", data);
+    //console.log("confObj:  ", confObj);
+    fetchAddQuote(confObj).then(() => {
+      //console.log("data: ", data);
       clearTags();
       renderAllQuote();
     });
